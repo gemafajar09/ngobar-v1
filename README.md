@@ -12,7 +12,10 @@ auth guard dan laravel cache
 ```
 composer create-project laravel/laravel:^10.0 ngobar
 ```
-
+- untuk melihat semua perintah pada artisan
+```
+php artisan list
+```
 - buka project ngobar
 ```
 cd ngobar
