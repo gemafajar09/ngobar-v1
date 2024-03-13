@@ -60,3 +60,5 @@ php artisan make:request LoginRequest
 ```
 App\Http\Request\LoginRequest
 ```
+- untuk alamat email dan password silahkan masukan manual terlebuh dahulu kedalam database. dan password harus berupa hash.
+- topik selanjutnya akan dibahas pada hari Jum'at 15/03/2024 dengan pembahasan 'register, middleware dan validation'
