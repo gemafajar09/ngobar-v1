@@ -14,7 +14,7 @@ class LoginController extends Controller
         return view('frontend.auth.login',$data);
     }
 
-    // function request berfugsi untuk menangkap nilai name dari inputan form
+    // function LoginRequest berfugsi untuk menangkap nilai name dari inputan form yang sudah di validasi
     public function login(LoginRequest $r){
         if($r->validated()){
             // hapus cache sebelumnya
