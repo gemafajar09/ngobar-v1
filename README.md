@@ -49,3 +49,14 @@ php artisan make:controller LoginController
 php artisan make:view frontend/auth/login
 ```
 - buatlah logic untuk auth dengan guard pada controller Login
+```
+silahkan cek pada App\Http\Controllers\LoginController.php
+```
+- buatlah validasi dengan perintah
+```
+php artisan make:request LoginRequest
+```
+- file request tadi akan berada pada file
+```
+App\Http\Request\LoginRequest
+```
