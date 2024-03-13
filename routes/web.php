@@ -8,6 +8,8 @@ use App\Http\Controllers\LoginController;
 // route memiliki beberapa method [get,post,put,delete]
 // '/' ada url utama sedangkan controller yg berada di dalam array adalah class yang dimana akana mnegatur semua interaksi di dalam web
 // ->name() berfungsi untuk inisialisasi url
-Route::get('/', [HomeController::class, 'index'])->name('/');
 
-Route::get('/login',[LoginController::class, 'index'])->name('login');
+Route::get('/',[LoginController::class, 'index'])->name('/');
+Route::post('/login',[LoginController::class, 'login'])->name('login');
+// 
+Route::get('/home', [HomeController::class, 'index'])->name('/home');
