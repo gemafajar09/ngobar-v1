@@ -20,12 +20,12 @@ php artisan list
 ```
 cd ngobar
 ```
-- lakukan generate key project
-```
-php artisan key:generate
-```
 
-- buatlah database dengan nama ngobar
+- silakan install composer agar file vendor dibuild kedalam project
+```
+composer install --no-dev
+```
+ - buatlah database dengan nama ngobar
 - pastikan file .env ada pada project jika tidak silahkan buat file dengan nama .env dan copy file .env.example
 - seteleah file .env telah ada maka lakukan configurasi database. cek pada line 11. dan silahkan samakan file sebagai berikut
 ```
@@ -36,6 +36,12 @@ DB_DATABASE=ngobar
 DB_USERNAME=root
 DB_PASSWORD=
 ```
+- jika sudah jalan perintah generate key
+```
+php artisan key:generate
+```
+
+
 - jika sudah maka jalanakan perintah
 ```
 php artisan migrate
@@ -61,4 +67,15 @@ php artisan make:request LoginRequest
 App\Http\Request\LoginRequest
 ```
 - untuk alamat email dan password silahkan masukan manual terlebuh dahulu kedalam database. dan password harus berupa hash.
-- topik selanjutnya akan dibahas pada hari Jum'at 15/03/2024 dengan pembahasan 'register, middleware dan validation'
+
+Pertemuan 2.
+register dan validation
+- buatlah sebah file view untuk register
+```
+php artisan make:view frontend/auth/register
+```
+- inport package Auth dan Hash kedalam file controller tempat logic auth berada
+```
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+```
