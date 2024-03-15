@@ -14,6 +14,10 @@ class LoginController extends Controller
         return view('frontend.auth.login',$data);
     }
 
+    public function regis(){
+        return view('frontend.auth.register');
+    } 
+
     // function LoginRequest berfugsi untuk menangkap nilai name dari inputan form yang sudah di validasi
     public function login(LoginRequest $r){
         if($r->validated()){
@@ -29,11 +33,18 @@ class LoginController extends Controller
             }
             // buat data cache dengan durasi selama 4 jam
             Cache::add('remember', $cache ,now()->addHours(4));
-            if (Auth::guard('web')->attempt(['email' => $r->email, 'password' => $r->password])) {
-                return redirect('home')->with("pesan","Berhasil Login");
-            }  
+
+            try {
+                if (Auth::guard('web')->attempt(['email' => $r->email, 'password' => $r->password])) {
+                    return redirect('home')->with("pesan","Berhasil Login");
+                }  
+            } catch (\Throwable $th) {
+                throw $th;
+                // jika login gagal maka kembali ke halaman login dengan mengirim pesan
+                // return back()->with("pesan","Pastikan email dan password benar");
+            }
+            
         }
-        // jika login gagal maka kembali ke halaman login dengan mengirim pesan
         return back()->with("pesan","Pastikan email dan password benar");
     }
 }

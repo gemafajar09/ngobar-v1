@@ -1,12 +1,12 @@
 @extends('frontend.auth.template')
 
 @section('title')
-LOGIN
+Register
 @endsection
 
 @section('content')
 
-    <div class="text-center content-center font-bold text-xl">Login</div>
+<div class="text-center content-center font-bold text-xl">Register</div>
     <hr class="mt-5">
     @if(session('pesan') ?? false)
     <div class="text-center p-2 bg-red-300 text-white rounded-md">{{ session('pesan') }}</div>
@@ -63,13 +63,10 @@ LOGIN
     <div class="p-3 flex justify-between">
         <div>
             <span>
-                Belum Punya Akun?
+                Sudah Punya Akun?
             </span>
-            <a class="font-bold hover:text-blue-500" href="#">Daftar</a>
+            <a class="font-bold hover:text-blue-500" href="#">Login</a>
         </div>
-        <a href="#" class="t-3 hover:text-blue-400 flex justify-center">
-            Lupa Password?
-        </a>
     </div>
 
 @endsection
