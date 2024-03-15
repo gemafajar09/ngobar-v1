@@ -11,16 +11,31 @@ Register
     @if(session('pesan') ?? false)
     <div class="text-center p-2 bg-red-300 text-white rounded-md">{{ session('pesan') }}</div>
     @endif
-    <form action="{{route('login')}}" method="post">
+    <form action="{{route('register-add')}}" method="post">
         @csrf
         <div class="mt-3 p-3 flex flex-col">
+            <label for="">
+                Name
+                @if( $errors->has('name') )
+                <span class="text-red-400">{{ $errors->first('name') }}</span>
+                @endif
+            </label>
+            <input type="text" name="name" value="{{ old('name') }}"
+                @class([ 
+                    'rounded-md', 
+                    'border', 
+                    'p-2', 
+                    'mt-2', 
+                    'border-gray-500',
+                    'border-red-500'=> $errors->has('name') ?? false,
+            ])/>
             <label for="">
                 Email
                 @if( $errors->has('email') )
                 <span class="text-red-400">{{ $errors->first('email') }}</span>
                 @endif
             </label>
-            <input type="email" name="email" value="{{ $cache->email ?? old('email') }}"
+            <input type="email" name="email" value="{{ old('email') }}"
                 @class([ 
                     'rounded-md', 
                     'border', 
@@ -50,13 +65,9 @@ Register
 
         </div>
 
-        <div class="flex justify-between p-3">
-            <div class="flex items-center gap-2">
-                <input type="checkbox" name="remember" value="1" @checked(old('remember', $cache->remember ??
-                false)) > Remember Me
-            </div>
+        <div class="flex justify-end p-3">
             <button type="submit"
-                class="bg-blue-600 hover:bg-blue-400 text-white p-2 w-24 rounded-md">Login</button>
+                class="bg-blue-600 hover:bg-blue-400 text-white p-2 w-24 rounded-md">Register</button>
         </div>
 
     </form>

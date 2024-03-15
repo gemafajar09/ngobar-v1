@@ -12,5 +12,6 @@ use App\Http\Controllers\LoginController;
 Route::get('/',[LoginController::class, 'index'])->name('/');
 Route::post('/login',[LoginController::class, 'login'])->name('login');
 Route::get('/register',[LoginController::class, 'regis'])->name('register');
+Route::post('/register-add',[LoginController::class, 'register'])->name('register-add');
 // 
 Route::get('/home', [HomeController::class, 'index'])->name('/home');

@@ -65,7 +65,7 @@ LOGIN
             <span>
                 Belum Punya Akun?
             </span>
-            <a class="font-bold hover:text-blue-500" href="#">Daftar</a>
+            <a class="font-bold hover:text-blue-500" href="{{route('register')}}">Daftar</a>
         </div>
         <a href="#" class="t-3 hover:text-blue-400 flex justify-center">
             Lupa Password?

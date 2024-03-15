@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use stdClass;
 
 class LoginController extends Controller
@@ -46,5 +49,21 @@ class LoginController extends Controller
             
         }
         return back()->with("pesan","Pastikan email dan password benar");
+    }
+
+    public function register(RegisterRequest $r){
+        if($r->validated()){
+            $regis = User::create([
+                'name' => $r->name,
+                'email' => $r->email,
+                'password' => Hash::make($r->password)
+            ]);
+
+            if($regis){
+                return redirect('/');
+            }else{
+                return back();
+            }
+        }
     }
 }
